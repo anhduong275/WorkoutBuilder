@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct WorkoutBuilderApp: App {
+    @State private var workouts = DataStore.sharedDataStore.sampleWorkouts;
+    @State private var exercises = DataStore.sharedDataStore.sampleExercises;
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView(workouts: $workouts, exercises: $exercises)
         }
     }
 }
