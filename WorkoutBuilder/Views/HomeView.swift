@@ -30,8 +30,10 @@ struct HomeView: View {
                 }
                 .padding(.bottom)
                 LazyVGrid(columns: columns) {
-                    HomeIconView(label: "Build a Workout", isLeft: true,
-                         fillColor: Color.blue)
+                    NavigationLink(destination: NewWorkoutSheet(isPresentingEmptyWorkoutSheet: .constant(true), isView: true)) {
+                        HomeIconView(label: "Build a Workout", isLeft: true,
+                             fillColor: Color.blue)
+                    }
                     NavigationLink(destination: ExerciseListView(exercises: $exercises)) {
                         HomeIconView(label: "All Exercises", isLeft: false,
                             fillColor: Color.red)

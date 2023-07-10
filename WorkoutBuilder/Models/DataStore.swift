@@ -63,4 +63,9 @@ class DataStore {
     }
     
     var sampleWorkouts: [Workout] {createSampleWorkouts()}
+    
+    // add workout to datastore
+    func addWorkout(workout: Workout) {
+        //
+    }
 }

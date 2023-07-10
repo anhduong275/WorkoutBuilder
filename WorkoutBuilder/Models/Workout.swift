@@ -14,7 +14,7 @@ class Workout: Identifiable, ObservableObject {
     @Published var description: String
     @Published var exercises: [Exercise] = []
     
-    init(id: UUID = UUID(), name: String, exercisesID: [UUID], description: String) {
+    init(id: UUID = UUID(), name: String, exercisesID: [UUID] = [], description: String) {
         self.id = id
         self.name = name
         self.exercisesID = exercisesID

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WorkoutListView: View {
     @Binding var workouts: [Workout]
+    @State private var isPresentingEmptyWorkoutSheet: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -21,8 +22,14 @@ struct WorkoutListView: View {
             }
             .navigationTitle("Workout List")
             .toolbar {
-                Button("Add") {}
+                Button("Add") {
+                    isPresentingEmptyWorkoutSheet = true
+                }
+                .accessibilityLabel("Add workout")
             }
+        }
+        .sheet(isPresented: $isPresentingEmptyWorkoutSheet) {
+            NewWorkoutSheet(isPresentingEmptyWorkoutSheet: $isPresentingEmptyWorkoutSheet, isView: false)
         }
     }
 }
